@@ -26,19 +26,19 @@ export default function Header() {
               onClick={handleMenuClick}>
               <li>
                 <Link href="/"
-                      className={`${asPath === "/" ? "text-slate-950" : "text-slate-950/80"} hover:text-slate-950 focus:text-slate-950 text-xs`}>Home</Link>
+                      className={`${asPath === "/" ? "text-slate-950" : "text-slate-950/80"} hover:text-slate-950 focus:text-slate-950 text-sm`}>Home</Link>
               </li>
               <li>
                 <Link href="/about"
-                      className={`${asPath === "/about" ? "text-slate-950" : "text-slate-950/80"} hover:text-slate-950 focus:text-slate-950 text-xs`}>About</Link>
+                      className={`${asPath === "/about" ? "text-slate-950" : "text-slate-950/80"} hover:text-slate-950 focus:text-slate-950 text-sm`}>About</Link>
               </li>
               <li>
                 <Link href="/testimonials"
-                      className={`${asPath === "/testimonies" ? "text-slate-950" : "text-slate-950/80"} hover:text-slate-950 focus:text-slate-950 text-xs`}>Testimonies</Link>
+                      className={`${asPath === "/testimonies" ? "text-slate-950" : "text-slate-950/80"} hover:text-slate-950 focus:text-slate-950 text-sm`}>Testimonies</Link>
               </li>
               <li>
                 <Link href="/teams"
-                      className={`${asPath === "/teams" ? "text-slate-950" : "text-slate-950/80"} hover:text-slate-950 focus:text-slate-950 text-xs`}>Our
+                      className={`${asPath === "/teams" ? "text-slate-950" : "text-slate-950/80"} hover:text-slate-950 focus:text-slate-950 text-sm`}>Our
                   Team</Link>
               </li>
               <li>

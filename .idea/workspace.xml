@@ -5,25 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="633007aa-566a-418a-84f0-a6be06338db4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/shopping-bags.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/shopping-bags.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/icons/CartIcon.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/icons/LoginIcon.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/icons/LogoutIcon.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/public-routes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/404.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/404.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/500.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/500.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_document.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/sign-in/[[...index]].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sign-in/[[...index]].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/sign-up/[[...index]].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sign-up/[[...index]].tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +99,7 @@
       <workItem from="1683362369419" duration="15000" />
       <workItem from="1683362396335" duration="3535000" />
       <workItem from="1683546397149" duration="11836000" />
-      <workItem from="1683625791181" duration="19541000" />
+      <workItem from="1683625791181" duration="23176000" />
     </task>
     <servers />
   </component>
