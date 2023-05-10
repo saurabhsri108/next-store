@@ -7,6 +7,7 @@ import HamburgerIcon from "@/components/icons/HamburgerIcon";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import CartIcon from "@/components/icons/CartIcon";
 import LoginIcon from "@/components/icons/LoginIcon";
+import { fireGtmEvent } from "@/utils/gtm-event";
 
 export default function Header() {
   const { asPath } = useRouter();
@@ -18,7 +19,10 @@ export default function Header() {
     <header className="bg-white text-slate-950 border-b">
       <Container className="flex items-center justify-between p-4 py-6">
         <section className="flex items-center justify-start gap-16">
-          <Link href="/" className="flex items-center font-bold text-lg">nextStore</Link>
+          <Link href="/" className="flex items-center font-bold text-lg"
+                onClick={() => fireGtmEvent("LogoClicked", {
+                  logoText: "nextStore"
+                })}>nextStore</Link>
           <nav
             className={`absolute bg-white text-slate-950 top-16 md:relative md:top-0 left-0 bottom-0 right-0 ${menuClicked ? "translate-x-0 z-10" : "-translate-x-full"} duration-200 md:translate-x-0`}>
             <ul

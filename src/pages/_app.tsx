@@ -24,8 +24,8 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
 
       {/*<Partytown debug={true} forward={["dataLayer.push"]} />*/}
-      <Script id="osano-consent" strategy="afterInteractive"
-              src="https://cmp.osano.com/16CPMHTaM5wJawf/0588f738-df1c-44a2-9bba-5c7e55e784c6/osano.js" />
+      {/*<Script id="osano-consent" strategy="afterInteractive"*/}
+      {/*        src="https://cmp.osano.com/16CPMHTaM5wJawf/0588f738-df1c-44a2-9bba-5c7e55e784c6/osano.js" />*/}
       <Script id="partytown-gtm" strategy="afterInteractive" dangerouslySetInnerHTML={{
         __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

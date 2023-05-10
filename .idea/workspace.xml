@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="633007aa-566a-418a-84f0-a6be06338db4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
     </list>
@@ -18,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -99,7 +98,7 @@
       <workItem from="1683362369419" duration="15000" />
       <workItem from="1683362396335" duration="3535000" />
       <workItem from="1683546397149" duration="11836000" />
-      <workItem from="1683625791181" duration="23176000" />
+      <workItem from="1683625791181" duration="24966000" />
     </task>
     <servers />
   </component>
