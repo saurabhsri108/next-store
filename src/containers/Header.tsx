@@ -8,16 +8,18 @@ import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import CartIcon from "@/components/icons/CartIcon";
 import LoginIcon from "@/components/icons/LoginIcon";
 import { fireGtmEvent } from "@/utils/gtm-event";
+import { mainMenuLinks } from "@/utils/navigation-links";
+import { motion } from "framer-motion";
 
 export default function Header() {
-  const { asPath } = useRouter();
+  const { pathname } = useRouter();
   const [menuClicked, setMenuClicked] = useState<boolean>(false);
 
   const handleMenuClick = () => setMenuClicked(!menuClicked);
 
   return (
     <header className="bg-white text-slate-950 border-b">
-      <Container className="flex items-center justify-between p-4 py-6">
+      <Container className="flex items-center justify-between pt-8 pb-4 px-8">
         <section className="flex items-center justify-start gap-16">
           <Link href="/" className="flex items-center font-bold text-lg"
                 onClick={() => fireGtmEvent("LogoClicked", {
@@ -28,28 +30,16 @@ export default function Header() {
             <ul
               className="flex flex-col md:flex-row items-start md:items-center text-xl md:text-base pl-4 pt-8 md:pl-0 md:pt-0 justify-center gap-8 md:gap-4"
               onClick={handleMenuClick}>
-              <li>
-                <Link href="/"
-                      className={`${asPath === "/" ? "text-slate-950" : "text-slate-950/80"} hover:text-slate-950 focus:text-slate-950 text-sm`}>Home</Link>
-              </li>
-              <li>
-                <Link href="/about"
-                      className={`${asPath === "/about" ? "text-slate-950" : "text-slate-950/80"} hover:text-slate-950 focus:text-slate-950 text-sm`}>About</Link>
-              </li>
-              <li>
-                <Link href="/testimonials"
-                      className={`${asPath === "/testimonies" ? "text-slate-950" : "text-slate-950/80"} hover:text-slate-950 focus:text-slate-950 text-sm`}>Testimonies</Link>
-              </li>
-              <li>
-                <Link href="/teams"
-                      className={`${asPath === "/teams" ? "text-slate-950" : "text-slate-950/80"} hover:text-slate-950 focus:text-slate-950 text-sm`}>Our
-                  Team</Link>
-              </li>
-              <li>
-                <Link href="/contact"
-                      className={`${asPath === "/contact" ? "text-slate-950" : "text-slate-950/80"} hover:text-slate-950 focus:text-slate-950 text-sm`}>Contact
-                  Us</Link>
-              </li>
+              {mainMenuLinks?.map(link => (
+                <li key={link.href}>
+                  <Link href={link.href} className="relative hover:text-slate-950 focus:text-slate-950 text-sm font-[500]" >
+                    {pathname === link.href && (
+                      <motion.span layoutId="underline" className="absolute left-0 top-full block h-[0.1rem] rounded-md w-full bg-slate-950"></motion.span>
+                    )}
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
         </section>
@@ -65,7 +55,7 @@ export default function Header() {
                 <Link href="/sign-in"
                       className="bg-slate-800 text-white hover:bg-slate-950 hover:text-white focus:bg-slate-950 focus:text-white duration-100 border-2 border-gray-50 px-2 py-2 flex items-center  rounded-md font-bold text-sm flex gap-2 pr-3 items-center justify-center">
                   <span><LoginIcon /></span>
-                  <span>Sign in</span>
+                  <span className="hidden md:flex">Sign in</span>
                 </Link>
               </SignedOut>
               <SignedIn>

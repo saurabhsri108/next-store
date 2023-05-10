@@ -6,13 +6,20 @@ import Header from "@/containers/Header";
 import Footer from "@/containers/Footer";
 import { ClerkProvider } from "@clerk/nextjs";
 import Script from "next/script";
+import { AnimatePresence, motion } from "framer-motion";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter"
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+const variants = {
+  initialState: { opacity: 0 },
+  animateState: { opacity: 1 },
+  exitState: { opacity: 0 }
+};
+
+export default function App({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <Head>
@@ -35,9 +42,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }} />
       <ClerkProvider {...pageProps}>
         <Header />
-        <main className={`${inter.variable} font-inter`}>
-          <Component {...pageProps} />
-        </main>
+        <AnimatePresence initial={false} mode="wait">
+          <motion.main
+            initial="initialState"
+            animate="animateState"
+            exit="exitState"
+            transition={{
+              duration: 0.2
+            }}
+            variants={variants}
+            key={router.pathname}
+            className={`${inter.variable} font-inter`}>
+            <Component {...pageProps} />
+          </motion.main>
+        </AnimatePresence>
         <Footer />
       </ClerkProvider>
     </>
