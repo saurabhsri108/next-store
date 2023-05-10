@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run partytown && next build",
+    "partytown": "partytown copylib public/~partytown",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --loglevel warn --write ."
   },
   "dependencies": {
+    "@builder.io/partytown": "^0.8.0",
     "@clerk/nextjs": "^4.17.1",
     "@prisma/client": "4.13.0",
     "@types/node": "20.1.0",

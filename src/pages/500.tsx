@@ -1,3 +1,5 @@
+import Container from "@/components/Container";
+
 function Svg500Error() {
   return (
     <svg
@@ -241,19 +243,19 @@ function Svg500Error() {
 
 export default function CustomServer500() {
   return (
-    <section className="w-full h-full mt-32 px-8 md:px-0 flex flex-col items-center justify-center">
+    <Container className="flex flex-col items-center justify-center h-[calc(100vh-11rem)]">
       <Svg500Error />
       <section className="flex flex-col items-center justify-center">
-        <p className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-wider text-gray-600 mt-8">
+        <p className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-wider text-slate-700 mt-8">
           500
         </p>
-        <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-600 mt-2">
+        <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-700 mt-2">
           Server Error
         </p>
-        <p className="md:text-lg xl:text-xl text-white mt-4">
+        <p className="md:text-lg xl:text-xl text-slate-700 mt-4">
           Whoops, something went wrong on our servers.
         </p>
       </section>
-    </section>
+    </Container>
   );
 }

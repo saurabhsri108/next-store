@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Container from "@/components/Container";
 
 function Svg404Error() {
   return (
@@ -131,13 +132,13 @@ function Svg404Error() {
 
 export default function Custom404() {
   return (
-    <section className="w-full h-full mt-32 px-8 md:px-0 flex flex-col items-center justify-center">
+    <Container className="flex flex-col items-center justify-center h-[calc(100vh-11rem)]">
       <Svg404Error />
       <section className="flex flex-col items-center justify-center">
-        <p className="text-3xl md:text-4xl lg:text-5xl text-gray-800 mt-12">
+        <p className="text-3xl md:text-4xl lg:text-5xl text-slate-700 mt-12">
           Page Not Found
         </p>
-        <p className="md:text-lg lg:text-xl text-gray-600 mt-8 text-center">
+        <p className="md:text-lg lg:text-xl text-slate-700 mt-8 text-center">
           Sorry, the page you are looking for could not be found.
         </p>
         <Link
@@ -157,6 +158,6 @@ export default function Custom404() {
           <span>Return Home</span>
         </Link>
       </section>
-    </section>
+    </Container>
   );
 }
