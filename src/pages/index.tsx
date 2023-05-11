@@ -17,8 +17,7 @@ export default function Home() {
           100%
           satisfaction.</p>
         <Link href="/products"
-              className="bg-slate-800 hover:bg-slate-950 focus:bg-slate-950 text-white px-6 py-4 rounded-sm md:px-8 md:py-6 md:text-lg md:rounded-md">Shop
-          Now</Link>
+              className="bg-slate-800 hover:bg-slate-950 focus:bg-slate-950 text-white px-6 py-4 rounded-sm md:px-8 md:py-6 md:text-lg md:rounded-md">Shop Now</Link>
       </section>
       <section className="hidden md:flex">
         <Image src="/assets/shopping-bags.svg" alt="Shopping Bag Illustration" width={640} height={640} className="w-40rem" priority />

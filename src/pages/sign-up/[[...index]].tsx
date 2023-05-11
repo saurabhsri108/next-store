@@ -1,4 +1,4 @@
-import { SignUp } from "@clerk/nextjs";
+import {SignUp} from "@clerk/nextjs";
 import Container from "@/components/Container";
 
 const SignUpPage = () => (

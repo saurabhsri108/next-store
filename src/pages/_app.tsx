@@ -15,12 +15,6 @@ const loadNetcoreScript = () => {
             smartech("create", process.env.NEXT_PUBLIC_NC_PANEL_IDENTIFIER);
             //@ts-ignore
             smartech("register", process.env.NEXT_PUBLIC_NC_WEBSITE_IDENTIFIER);
-
-            // fire initial event
-            // @ts-ignore
-            smartech("debug", "1");
-
-            console.log("Hello")
         } catch (e) {
             //
         }
@@ -62,7 +56,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <Script
                 src="//cdnt.netcoresmartech.com/smartechclient.js"
                 strategy="afterInteractive"
-                onLoad={loadNetcoreScript}></Script>
+                onLoad={loadNetcoreScript} />
             <ClerkProvider {...pageProps}>
                 <Header/>
                 <AnimatePresence initial={false} mode="wait">
