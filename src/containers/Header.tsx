@@ -1,15 +1,15 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 import Container from "@/components/Container";
-import { useState } from "react";
+import {useState} from "react";
 import CloseIcon from "@/components/icons/CloseIcon";
 import HamburgerIcon from "@/components/icons/HamburgerIcon";
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import {SignedIn, SignedOut, UserButton} from "@clerk/nextjs";
 import CartIcon from "@/components/icons/CartIcon";
 import LoginIcon from "@/components/icons/LoginIcon";
-import { fireGtmEvent } from "@/utils/gtm-event";
-import { mainMenuLinks } from "@/utils/navigation-links";
-import { motion } from "framer-motion";
+import {fireGtmEvent} from "@/utils/gtm-event";
+import {mainMenuLinks} from "@/utils/navigation-links";
+import {motion} from "framer-motion";
 
 export default function Header() {
   const { pathname } = useRouter();

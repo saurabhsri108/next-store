@@ -1,4 +1,4 @@
-import { SignedIn, UserProfile } from "@clerk/nextjs";
+import {SignedIn, UserProfile} from "@clerk/nextjs";
 import DashboardLayout from "@/containers/DashboardLayout";
 
 export default function ProfilePage() {
