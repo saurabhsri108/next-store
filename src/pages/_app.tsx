@@ -8,19 +8,6 @@ import {ClerkProvider} from "@clerk/nextjs";
 import Script from "next/script";
 import {AnimatePresence, motion} from "framer-motion";
 
-const loadNetcoreScript = () => {
-    setTimeout(() => {
-        try {
-            //@ts-ignore
-            smartech("create", process.env.NEXT_PUBLIC_NC_PANEL_IDENTIFIER);
-            //@ts-ignore
-            smartech("register", process.env.NEXT_PUBLIC_NC_WEBSITE_IDENTIFIER);
-        } catch (e) {
-            //
-        }
-    }, 3000);
-};
-
 const inter = Inter({
     subsets: ["latin"],
     variable: "--font-inter"
@@ -42,21 +29,6 @@ export default function App({Component, pageProps, router}: AppProps) {
                     content="Learn NextJS 13 pages directory architecture"
                 />
             </Head>
-
-            {/*<Partytown debug={true} forward={["dataLayer.push"]} />*/}
-            <Script id="osano-consent" strategy="afterInteractive"
-                    src="https://cmp.osano.com/16CPMHTaM5wJawf/0588f738-df1c-44a2-9bba-5c7e55e784c6/osano.js"/>
-            <Script id="partytown-gtm" strategy="afterInteractive" dangerouslySetInnerHTML={{
-                __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NC987FC');`
-            }}/>
-            <Script
-                src="//cdnt.netcoresmartech.com/smartechclient.js"
-                strategy="afterInteractive"
-                onLoad={loadNetcoreScript} />
             <ClerkProvider {...pageProps}>
                 <Header/>
                 <AnimatePresence initial={false} mode="wait">
