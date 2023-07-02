@@ -8,7 +8,11 @@ export default function ProfilePage() {
         {
           elements: {
             card: "shadow-none border-none w-full",
-            rootBox: "w-full"
+            rootBox: "w-full",
+            navbar: "hidden",
+            scrollBox: "w-full",
+            pageScrollBox: "py-4 px-0 md:px-4",
+            navbarMobileMenuRow: "hidden"
           }
         }
       } />
