@@ -1,9 +1,9 @@
-import {SignIn} from "@clerk/nextjs";
-import Container from "@/components/Container";
+import { SignIn } from "@clerk/nextjs"
+import Container from "@/components/Container"
 
 const SignInPage = () => (
-  <Container className="flex items-center justify-center h-[calc(100vh-11rem)]">
+  <Container className="flex h-[calc(100vh-11rem)] items-center justify-center">
     <SignIn />
   </Container>
-);
-export default SignInPage;
+)
+export default SignInPage

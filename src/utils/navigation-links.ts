@@ -3,5 +3,5 @@ export const mainMenuLinks = [
   { href: "/about", label: "About" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/teams", label: "Our Teams" },
-  { href: "/contact", label: "Contact Us" }
-];
+  { href: "/contact", label: "Contact Us" },
+]
