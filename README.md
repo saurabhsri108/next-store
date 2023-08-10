@@ -109,20 +109,31 @@ This project aims to build for learning purpose an e-commerce application using 
 ## React Server Components (RSCs) Pros:
 
 **1. Smaller Bundle Sizes and Faster Execution:** RSCs allow sending less JavaScript to the client, leading to smaller bundle sizes and faster execution, which is beneficial for SEO and page load times.
+
 **2. Advanced Data Loading Patterns:** RSCs provide advanced data loading patterns that can optimize complex data-heavy components, improving overall application performance.
+
 **3. Up-to-date React Architecture:** RSCs are aligned with present and future React architecture, ensuring better maintainability and scalability in the long run.
+
 **4. Better Package Support:** As React and its ecosystem evolve, RSCs are likely to receive better package support, contributing to improved maintainability.
+
 **5. Access to New React Features:** RSC-driven frameworks are likely to incorporate new React features, enabling you to leverage them in the future.
+
 **6. Improved Page Load Times:** Faster rendering with streaming and parallel, non-blocking data loading can lead to better Google Web Metrics and higher conversion rates.
+
 **7. Granular Caching Control:** RSCs offer more control and granularity for caching, allowing you to optimize caching strategies.
+
 **8. Hydrate Only What's Needed:** RSCs enable you to hydrate only the necessary components on the client, improving overall performance.
 
 ## React Server Components (RSCs) Cons:
 
 **1. Increased Server Cost:** RSCs may increase server workload and costs due to more processing being performed on the server.
+
 **2. New Mental Model:** Developers need to understand the new concept of server-only rendering and manage the differences in rendering environments.
+
 **3. Initial Code Complexity:** Adapting to RSCs might lead to an increase in code complexity during the initial learning curve.
+
 **4. Server-only Rendering Environment:** RSCs introduce a new server-only rendering environment, which might require adjustments to existing workflows.
+
 **5. Control Over Hydration:** Developers need to ensure proper control over what gets hydrated and what doesn't, which could require additional attention.
 
 
