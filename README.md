@@ -15,8 +15,9 @@ This project aims to build for learning purpose an e-commerce application using 
 
 ## Source
 
-1. Live deployment: https://pagestore.saurabhsrivastava.in/
-2. GitHub code: https://github.com/saurabhsri108/next-store-pages
+1. Live deployment Pages Router Application: https://pagestore.saurabhsrivastava.in/
+2. Live deployment App Router Application: https://appstore.saurabhsrivastava.in/
+3. GitHub code: https://github.com/saurabhsri108/next-store
 
 ## License
 
