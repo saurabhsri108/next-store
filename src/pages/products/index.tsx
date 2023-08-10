@@ -1,6 +1,9 @@
-import type { GetStaticProps, InferGetStaticPropsType } from "next"
+import type { InferGetStaticPropsType } from "next"
+import Link from "next/link"
 
-export async function getStaticProps(context: GetStaticProps) {
+export const getStaticProps = async () => {
+  console.log("Server:::", process.env.NEXT_PUBLIC_GTM_ID)
+  console.log("Server:::", process.env.GTM_ID)
   const products = [
     { id: crypto.randomUUID(), name: "Product 1" },
     { id: crypto.randomUUID(), name: "Product 2" },
@@ -12,12 +15,14 @@ export async function getStaticProps(context: GetStaticProps) {
 export default function Products({
   products,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  console.log("Browser:::", process.env.NEXT_PUBLIC_GTM_ID)
+  console.log("Browser:::", process.env.GTM_ID)
   return (
     <section>
       {products.map((product) => (
-        <div key={product.id}>
+        <Link href={`/products/${product.id}`} key={product.id}>
           <p>{product.name}</p>
-        </div>
+        </Link>
       ))}
     </section>
   )

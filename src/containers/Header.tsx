@@ -7,7 +7,6 @@ import HamburgerIcon from "@/components/icons/HamburgerIcon"
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
 import CartIcon from "@/components/icons/CartIcon"
 import LoginIcon from "@/components/icons/LoginIcon"
-import { fireGtmEvent } from "@/utils/gtm-event"
 import { mainMenuLinks } from "@/utils/navigation-links"
 import { motion } from "framer-motion"
 
@@ -24,11 +23,7 @@ export default function Header() {
           <Link
             href="/"
             className="flex items-center text-lg font-bold"
-            onClick={() =>
-              fireGtmEvent("LogoClicked", {
-                logoText: "nextStore",
-              })
-            }
+            onClick={() => fetch("/api/server-tag")}
           >
             nextStore
           </Link>
