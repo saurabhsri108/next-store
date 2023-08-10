@@ -1,6 +1,6 @@
 # NextJS 13 E-Commerce Application using Pages & App Architectures
 
-This project aims to build for learning purpose an e-commerce application using NextJS 13 Pages Architecture.
+This project aims to build for learning purpose an e-commerce application using NextJS 13 Pages Router Architecture and then convert it incrementally to App Router Architecture.
 
 ## Technologies
 
