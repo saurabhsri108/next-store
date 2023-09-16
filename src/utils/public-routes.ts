@@ -7,4 +7,4 @@ export const publicRoutes = [
   "/products",
   "/404",
   "/500",
-]
+];

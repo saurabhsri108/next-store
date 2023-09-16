@@ -1,5 +1,5 @@
-import Link from "next/link"
-import Container from "@/components/Container"
+import Link from "next/link";
+import Container from "@/components/Container";
 
 function Svg404Error() {
   return (
@@ -155,7 +155,7 @@ function Svg404Error() {
         fill="#cacaca"
       ></path>
     </svg>
-  )
+  );
 }
 
 export default function Custom404() {
@@ -190,5 +190,5 @@ export default function Custom404() {
         </Link>
       </section>
     </Container>
-  )
+  );
 }

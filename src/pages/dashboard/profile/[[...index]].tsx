@@ -1,5 +1,5 @@
-import { SignedIn, UserProfile } from "@clerk/nextjs"
-import DashboardLayout from "@/containers/DashboardLayout"
+import { SignedIn, UserProfile } from "@clerk/nextjs";
+import DashboardLayout from "@/containers/DashboardLayout";
 
 export default function ProfilePage() {
   return (
@@ -21,5 +21,5 @@ export default function ProfilePage() {
         />
       </SignedIn>
     </DashboardLayout>
-  )
+  );
 }

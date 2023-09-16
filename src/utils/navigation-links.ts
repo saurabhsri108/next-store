@@ -4,4 +4,4 @@ export const mainMenuLinks = [
   { href: "/testimonials", label: "Testimonials" },
   { href: "/teams", label: "Our Teams" },
   { href: "/contact", label: "Contact Us" },
-]
+];

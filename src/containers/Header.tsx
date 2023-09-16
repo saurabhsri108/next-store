@@ -1,20 +1,20 @@
-import Link from "next/link"
-import { useRouter } from "next/router"
-import Container from "@/components/Container"
-import { useState } from "react"
-import CloseIcon from "@/components/icons/CloseIcon"
-import HamburgerIcon from "@/components/icons/HamburgerIcon"
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
-import CartIcon from "@/components/icons/CartIcon"
-import LoginIcon from "@/components/icons/LoginIcon"
-import { mainMenuLinks } from "@/utils/navigation-links"
-import { motion } from "framer-motion"
+import Link from "next/link";
+import { useRouter } from "next/router";
+import Container from "@/components/Container";
+import { useState } from "react";
+import CloseIcon from "@/components/icons/CloseIcon";
+import HamburgerIcon from "@/components/icons/HamburgerIcon";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import CartIcon from "@/components/icons/CartIcon";
+import LoginIcon from "@/components/icons/LoginIcon";
+import { mainMenuLinks } from "@/utils/navigation-links";
+import { motion } from "framer-motion";
 
 export default function Header() {
-  const { pathname } = useRouter()
-  const [menuClicked, setMenuClicked] = useState<boolean>(false)
+  const { pathname } = useRouter();
+  const [menuClicked, setMenuClicked] = useState<boolean>(false);
 
-  const handleMenuClick = () => setMenuClicked(!menuClicked)
+  const handleMenuClick = () => setMenuClicked(!menuClicked);
 
   return (
     <header className="border-b bg-white text-slate-950">
@@ -93,5 +93,5 @@ export default function Header() {
         </nav>
       </Container>
     </header>
-  )
+  );
 }

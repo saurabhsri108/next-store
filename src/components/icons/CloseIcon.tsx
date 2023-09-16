@@ -12,5 +12,5 @@ export default function CloseIcon({ className }: { className?: string }) {
         clipRule="evenodd"
       />
     </svg>
-  )
+  );
 }

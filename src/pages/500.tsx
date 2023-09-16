@@ -1,4 +1,4 @@
-import Container from "@/components/Container"
+import Container from "@/components/Container";
 
 function Svg500Error() {
   return (
@@ -279,7 +279,7 @@ function Svg500Error() {
         fill="#fff"
       ></path>
     </svg>
-  )
+  );
 }
 
 export default function CustomServer500() {
@@ -298,5 +298,5 @@ export default function CustomServer500() {
         </p>
       </section>
     </Container>
-  )
+  );
 }

@@ -1,28 +1,28 @@
-import "@/styles/globals.css"
-import { Inter } from "next/font/google"
-import Head from "next/head"
-import Header from "@/containers/Header"
-import Footer from "@/containers/Footer"
-import { ClerkProvider } from "@clerk/nextjs"
-import { AnimatePresence, motion } from "framer-motion"
-import type { AppProps, NextWebVitalsMetric } from "next/app"
-import Script from "next/script"
-import { Partytown } from "@builder.io/partytown/react"
+import "@/styles/globals.css";
+import { Inter } from "next/font/google";
+import Head from "next/head";
+import Header from "@/containers/Header";
+import Footer from "@/containers/Footer";
+import { ClerkProvider } from "@clerk/nextjs";
+import { AnimatePresence, motion } from "framer-motion";
+import type { AppProps, NextWebVitalsMetric } from "next/app";
+import Script from "next/script";
+import { Partytown } from "@builder.io/partytown/react";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-})
+});
 
 const variants = {
   initialState: { opacity: 0 },
   animateState: { opacity: 1 },
   exitState: { opacity: 0 },
-}
+};
 
 export function reportWebVitals(metric: NextWebVitalsMetric) {
   if (process.env.NODE_ENV !== "production") {
-    console.log(metric)
+    console.log(metric);
   }
 }
 
@@ -40,13 +40,13 @@ export default function App({ Component, pageProps, router }: AppProps) {
           forward={["dataLayer.push", "__tag_assistant_forwarder"]}
           resolveUrl={(url) => {
             if (url.pathname.includes("debug/bootstrap")) {
-              var proxyUrl = new URL("/party-proxy")
+              var proxyUrl = new URL("/party-proxy");
               // @ts-ignore
-              proxyUrl.searchParams.append("url", url)
-              console.log({ proxyUrl, url })
-              return proxyUrl
+              proxyUrl.searchParams.append("url", url);
+              console.log({ proxyUrl, url });
+              return proxyUrl;
             }
-            return url
+            return url;
           }}
         />
       </Head>
@@ -74,7 +74,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
         type="text/partytown"
         strategy="afterInteractive"
         onLoad={() => {
-          console.log("GTM script is ready")
+          console.log("GTM script is ready");
         }}
         dangerouslySetInnerHTML={{
           __html: `
@@ -95,5 +95,5 @@ export default function App({ Component, pageProps, router }: AppProps) {
         }}
       />
     </>
-  )
+  );
 }

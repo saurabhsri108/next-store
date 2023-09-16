@@ -12,5 +12,5 @@ export default function HamburgerIcon({ className }: { className?: string }) {
         clipRule="evenodd"
       />
     </svg>
-  )
+  );
 }
