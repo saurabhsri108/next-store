@@ -287,13 +287,13 @@ export default function CustomServer500() {
     <Container className="flex h-[calc(100vh-11rem)] flex-col items-center justify-center">
       <Svg500Error />
       <section className="flex flex-col items-center justify-center">
-        <p className="mt-8 text-5xl font-bold tracking-wider text-slate-700 md:text-6xl lg:text-7xl">
+        <p className="mt-8 text-5xl font-bold tracking-wider text-neutral-700 md:text-6xl lg:text-7xl">
           500
         </p>
-        <p className="mt-2 text-2xl font-bold text-slate-700 md:text-3xl lg:text-4xl">
+        <p className="mt-2 text-2xl font-bold text-neutral-700 md:text-3xl lg:text-4xl">
           Server Error
         </p>
-        <p className="mt-4 text-slate-700 md:text-lg xl:text-xl">
+        <p className="mt-4 text-neutral-700 md:text-lg xl:text-xl">
           Whoops, something went wrong on our servers.
         </p>
       </section>

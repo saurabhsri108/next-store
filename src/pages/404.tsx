@@ -163,15 +163,15 @@ export default function Custom404() {
     <Container className="flex h-[calc(100vh-11rem)] flex-col items-center justify-center">
       <Svg404Error />
       <section className="flex flex-col items-center justify-center">
-        <p className="mt-12 text-3xl text-slate-700 md:text-4xl lg:text-5xl">
+        <p className="mt-12 text-3xl text-neutral-700 md:text-4xl lg:text-5xl">
           Page Not Found
         </p>
-        <p className="mt-8 text-center text-slate-700 md:text-lg lg:text-xl">
+        <p className="mt-8 text-center text-neutral-700 md:text-lg lg:text-xl">
           Sorry, the page you are looking for could not be found.
         </p>
         <Link
           href="/"
-          className="mt-12 flex items-center space-x-2 rounded bg-slate-950 px-4 py-2 text-white transition duration-150 hover:bg-slate-950"
+          className="mt-12 flex items-center space-x-2 rounded bg-neutral-950 px-4 py-2 text-white transition duration-150 hover:bg-neutral-950"
           title="Return Home"
         >
           <svg
