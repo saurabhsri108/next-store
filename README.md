@@ -42,17 +42,17 @@ This project aims to build for learning purpose an e-commerce application using 
    import { Suspense } from "react";
 
    async function getData(id) {
-     const response = await fetch(`url/${id}`);
-     return response.json();
+   	const response = await fetch(`url/${id}`);
+   	return response.json();
    }
 
    async function ServerComponent({ id }) {
-     const data = await getData(id);
-     return (
-       <Suspense fallback={<p>Loading data...</p>}>
-         <p>Data: {data}</p>
-       </Suspense>
-     );
+   	const data = await getData(id);
+   	return (
+   		<Suspense fallback={<p>Loading data...</p>}>
+   			<p>Data: {data}</p>
+   		</Suspense>
+   	);
    }
    ```
 
@@ -63,19 +63,19 @@ This project aims to build for learning purpose an e-commerce application using 
    ```jsx
    "use client";
 
-   import ServerComponent from "./server-component"; // do not do this
+   import ServerComponent from "./server-component";
+
+   // do not do this
 
    function ClientComponent() {
-     const [count, setCount] = useState(0);
+   	const [count, setCount] = useState(0);
 
-     return (
-       <>
-         <button onClick={() => setCount(count + 1)}>
-           The count is: {count}
-         </button>
-         <ServerComponent /> {/* still runs on the client */}
-       </>
-     );
+   	return (
+   		<>
+   			<button onClick={() => setCount(count + 1)}>The count is: {count}</button>
+   			<ServerComponent /> {/* still runs on the client */}
+   		</>
+   	);
    }
    ```
 
@@ -89,16 +89,14 @@ This project aims to build for learning purpose an e-commerce application using 
     "use client";
 
     function ClientComponent({ serverComponentAsPropsOrChildren }) {
-      const [count, setCount] = useState(0);
+    	const [count, setCount] = useState(0);
 
-      return (
-        <>
-          <button onClick={() => setCount(count + 1)}>
-            The count is: {count}
-          </button>
-          {serverComponentAsPropsOrChildren} {/* This renders as RSC if it's a RSC */}
-        </>
-      );
+    	return (
+    		<>
+    			<button onClick={() => setCount(count + 1)}>The count is: {count}</button>
+    			{serverComponentAsPropsOrChildren} {/* This renders as RSC if it's a RSC */}
+    		</>
+    	);
     }
     ```
 

@@ -1,13 +1,11 @@
 import { ReactNode } from "react";
 
 export default function Container({
-  children,
-  className,
+	children,
+	className,
 }: {
-  children: ReactNode;
-  className?: string;
+	children: ReactNode;
+	className?: string;
 }) {
-  return (
-    <section className={`mx-auto max-w-7xl ${className}`}>{children}</section>
-  );
+	return <section className={`mx-auto max-w-7xl ${className}`}>{children}</section>;
 }

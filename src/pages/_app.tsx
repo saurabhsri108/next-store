@@ -1,13 +1,12 @@
-import "@/styles/globals.css";
-import { Inter } from "next/font/google";
-import Head from "next/head";
-import Header from "@/containers/Header";
 import Footer from "@/containers/Footer";
+import Header from "@/containers/Header";
+import "@/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { AnimatePresence, motion } from "framer-motion";
 import type { AppProps, NextWebVitalsMetric } from "next/app";
-import Script from "next/script";
-import { Partytown } from "@builder.io/partytown/react";
+import { Inter } from "next/font/google";
+import Head from "next/head";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,24 +30,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
     <>
       <Head>
         <title>NextJS 13 | Learn NextJS 13 with old architecture</title>
-        <meta
-          name="description"
-          content="Learn NextJS 13 pages directory architecture"
-        />
-        <Partytown
-          debug={true}
-          forward={["dataLayer.push", "__tag_assistant_forwarder"]}
-          resolveUrl={(url) => {
-            if (url.pathname.includes("debug/bootstrap")) {
-              var proxyUrl = new URL("/party-proxy");
-              // @ts-ignore
-              proxyUrl.searchParams.append("url", url);
-              console.log({ proxyUrl, url });
-              return proxyUrl;
-            }
-            return url;
-          }}
-        />
+        <meta name="description" content="Learn NextJS 13 pages directory architecture" />
       </Head>
       <ClerkProvider {...pageProps}>
         <Header />
@@ -69,31 +51,18 @@ export default function App({ Component, pageProps, router }: AppProps) {
         </AnimatePresence>
         <Footer />
       </ClerkProvider>
-      <Script
-        id="gtm-script"
-        type="text/partytown"
-        strategy="afterInteractive"
-        onLoad={() => {
-          console.log("GTM script is ready");
-        }}
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function (w, d, s, l, i) {
-              w[l] = w[l] || [];
-              w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-              });
-              var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-              j.async = true;
-              j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-              f.parentNode.insertBefore(j, f);
-            })(window, document, 'script', 'dataLayer', '${process.env.NEXT_PUBLIC_GTM_ID}');
-          `,
-        }}
-      />
+      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
+      {/*			<Script*/}
+      {/*				strategy="lazyOnload"*/}
+      {/*				id="gtm-script"*/}
+      {/*				dangerouslySetInnerHTML={{*/}
+      {/*					__html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':*/}
+      {/*new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],*/}
+      {/*j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=*/}
+      {/*'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);*/}
+      {/*})(window,document,'script','dataLayer',"${process.env.NEXT_PUBLIC_GTM_ID}");`,*/}
+      {/*				}}*/}
+      {/*			/>*/}
     </>
   );
 }
