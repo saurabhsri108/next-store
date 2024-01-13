@@ -17,19 +17,20 @@ This project aims to build for learning purpose an e-commerce application using 
 
 1. Pages Router has 3 problems:
 
-  - The SSR/SSG approaches send all the JavaScript used to generate the page to the client, where the client then runs it all again and hydrates that HTML with the JavaScript that just booted up. The question here was, do we really need to duplicate all of the rendering work just to hydrate?
+- The SSR/SSG approaches send all the JavaScript used to generate the page to the client, where the client then runs it all again and hydrates that HTML with the JavaScript that just booted up. The question here was, do we really need to duplicate all of the rendering work just to hydrate?
 
-  - What if that server-side render takes a long time? Maybe it runs a lot of code, maybe it's stuck waiting for a slow database call? Then the user's stuck waiting.
+- What if that server-side render takes a long time? Maybe it runs a lot of code, maybe it's stuck waiting for a slow database call? Then the user's stuck waiting.
 
-  - We have to load everything (entire APP) before we hydrate anything.
+- We have to load everything (entire APP) before we hydrate anything.
 
 2. React Server Components aims to solve the above 3 problems.
 
 3. React Server Components: RSCs are react components that run on the server instead of on the client. The real question is, why do we want RSCs? Because it has 2 main advantages over SSR:
-  - Frameworks that support RSCs give us a way to define where our code runs: what needs to run only on the server (like PHP) and what should run on the client (like SSR). These are called Server components and Client components respectively. Since we can be explicit about where our code runs, we can send less JavaScript to the client, leading to smaller bundle sizes and less work during hydration.
-  - Second advantage of RSC-driven frameworks is that Server Components can fetch data directly from within the component. When that fetch is complete, Server Components can stream that data to the client. This means no more **useEffect()** hook for most part and manage complex loading states (react-query, rtk query, etc), and no more fetching a bunch of data at the page level with **getServerSideProps** and then doing prop drilling.
-  - Third, it solves the problem of slow database call, as the server component directly fetches its own data and streams it when it's ready.
-  - Fourth, if we need to fetch data on the server in response to a user's action on the client (like form submission), we can do that too. The client can send the data to the server, and the server can do its fetching or whatever, and stream the response back to the client just like it streamed that initial data. This 2-way communication is possible through **React Actions** which is a little different from Server Component.
+
+- Frameworks that support RSCs give us a way to define where our code runs: what needs to run only on the server (like PHP) and what should run on the client (like SSR). These are called Server components and Client components respectively. Since we can be explicit about where our code runs, we can send less JavaScript to the client, leading to smaller bundle sizes and less work during hydration.
+- Second advantage of RSC-driven frameworks is that Server Components can fetch data directly from within the component. When that fetch is complete, Server Components can stream that data to the client. This means no more **useEffect()** hook for most part and manage complex loading states (react-query, rtk query, etc), and no more fetching a bunch of data at the page level with **getServerSideProps** and then doing prop drilling.
+- Third, it solves the problem of slow database call, as the server component directly fetches its own data and streams it when it's ready.
+- Fourth, if we need to fetch data on the server in response to a user's action on the client (like form submission), we can do that too. The client can send the data to the server, and the server can do its fetching or whatever, and stream the response back to the client just like it streamed that initial data. This 2-way communication is possible through **React Actions** which is a little different from Server Component.
 
 4. CSS-in-JS doesn't work in Server Components. This means styled-components type solution won't work. TailwindCSS works here without any issue and normal CSS as well.
 
@@ -37,45 +38,46 @@ This project aims to build for learning purpose an e-commerce application using 
 
 6. By default, all components are Server Components -> No code sent to the client browser. We can use async await in Server Component by making the Server component async function
 
-    ```jsx
-    import { Suspense } from 'react';
+   ```jsx
+   import { Suspense } from "react";
 
-    async function getData(id) {
-      const response = await fetch(`url/${id}`);
-      return response.json();
-    }
+   async function getData(id) {
+   	const response = await fetch(`url/${id}`);
+   	return response.json();
+   }
 
-    async function ServerComponent({id}) {
-      const data = await getData(id);
-      return (
-        <Suspense fallback={<p>Loading data...</p>}>
-          <p>Data: {data}</p>
-        </Suspense>
-      )
-    }
-    ```
+   async function ServerComponent({ id }) {
+   	const data = await getData(id);
+   	return (
+   		<Suspense fallback={<p>Loading data...</p>}>
+   			<p>Data: {data}</p>
+   		</Suspense>
+   	);
+   }
+   ```
+
 7. Suspense, apart from streaming data, can also help in prioritizing hydration of certain specific part of an app in response to user interaction.
 
 8. Component will be shipped on the client if we mention **"use client"** at the top of the component. This will also make sure that all the components this client component imports gets shipped to the client.
 
-    ```jsx
-    "use client"
+   ```jsx
+   "use client";
 
-    import ServerComponent from "./server-component" // do not do this
+   import ServerComponent from "./server-component";
 
-    function ClientComponent() {
-      const [count, setCount] = useState(0)
+   // do not do this
 
-      return (
-        <>
-          <button onClick={() => setCount(count + 1)}>
-            The count is: {count}
-          </button>
-          <ServerComponent /> {/* still runs on the client */}
-        </>
-      )
-    }
-    ```
+   function ClientComponent() {
+   	const [count, setCount] = useState(0);
+
+   	return (
+   		<>
+   			<button onClick={() => setCount(count + 1)}>The count is: {count}</button>
+   			<ServerComponent /> {/* still runs on the client */}
+   		</>
+   	);
+   }
+   ```
 
 9. If the library doesn't support RSC, we can import it inside the client component making it a part of a client component.
 
@@ -84,19 +86,17 @@ This project aims to build for learning purpose an e-commerce application using 
 11. One advance pattern that emerges here due to nature of imports and client component is that we should not import server components in the client components as they will become client components or throw error. We should pass them as children or props instead. This way, the server component will be rendered on the server, serialized, and sent to our client component.
 
     ```jsx
-    "use client"
+    "use client";
 
-    function ClientComponent({serverComponentAsPropsOrChildren}) {
-      const [count, setCount] = useState(0)
+    function ClientComponent({ serverComponentAsPropsOrChildren }) {
+    	const [count, setCount] = useState(0);
 
-      return (
-        <>
-          <button onClick={() => setCount(count + 1)}>
-            The count is: {count}
-          </button>
-          {serverComponentAsPropsOrChildren} {/* This renders as RSC if it's a RSC */}
-        </>
-      )
+    	return (
+    		<>
+    			<button onClick={() => setCount(count + 1)}>The count is: {count}</button>
+    			{serverComponentAsPropsOrChildren} {/* This renders as RSC if it's a RSC */}
+    		</>
+    	);
     }
     ```
 
@@ -136,8 +136,8 @@ This project aims to build for learning purpose an e-commerce application using 
 
 **5. Control Over Hydration:** Developers need to ensure proper control over what gets hydrated and what doesn't, which could require additional attention.
 
-
 ## Sources
+
 1. [Everything I wish I knew before moving 50,000 lines of code to React Server Components - Darius Cepulis](https://www.mux.com/blog/what-are-react-server-components)
 2. [Splitting the Work: Streaming Server Rendering with Suspense: Shaundai Person](https://www.youtube.com/watch?v=Q98l5o1y3ao)
 3. [The Costs & Benefits of React Server Components: Jeff Escalante](https://www.youtube.com/watch?v=TJOiXyVKExg)

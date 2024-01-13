@@ -1,24 +1,28 @@
-import type { GetServerSideProps, InferGetServerSidePropsType } from "next"
+import type { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 
-export const getServerSideProps: GetServerSideProps = async ({
-  req,
-  res,
-  params,
-}) => {
-  const { cookies } = req
-  console.log({ cookies, params })
-
-  const product = [
-    { id: crypto.randomUUID(), name: "Product 1" },
-    { id: crypto.randomUUID(), name: "Product 2" },
-    { id: crypto.randomUUID(), name: "Product 3" },
-  ][1]
-
-  return { props: { product } }
+interface Product {
+	id: string;
+	name: string;
 }
 
-export default function Product({
-  product,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  return <div>{product.id}</div>
+export const getStaticProps: GetStaticProps<{ product: Product }> = async ({ params }) => {
+	const index = Number(params?.pid) - 1;
+	const product = [
+		{ id: "1", name: "Product 1" },
+		{ id: "2", name: "Product 2" },
+		{ id: "3", name: "Product 3" },
+	][index];
+
+	return { props: { product } };
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+	const paths = [{ params: { pid: "1" } }];
+
+	return { paths, fallback: "blocking" };
+};
+
+export default function Product({ product }: InferGetStaticPropsType<typeof getStaticProps>) {
+	console.log(product);
+	return <div>{product.id}</div>;
 }
